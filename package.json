@@ -1,0 +1,22 @@
+{
+    "name": "wom-netlify-auto-updater",
+    "version": "1.0.0",
+    "description": "Auto-update OSRS Wise Old Man progress tracker via Netlify scheduled functions.",
+    "author": "Deven Caron",
+    "license": "ISC",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@netlify/functions": "^2.1.0",
+        "@wise-old-man/utils": "^3.0.3",
+        "node-fetch": "^3.3.2"
+    },
+    "keywords": [
+        "WOM",
+        "Wise Old Man",
+        "Oldschool Runescape",
+        "Progress Tracker",
+        "Netlify"
+    ]
+}
