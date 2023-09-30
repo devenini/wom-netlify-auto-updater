@@ -1,11 +1,11 @@
 const { schedule } = require("@netlify/functions");
 const { WOMClient } = require('@wise-old-man/utils');
 
-// Split the string by commas
-const playersToUpdate = process.env.PLAYERS_TO_UPDATE.split(',');
+// Get the PLAYERS_TO_UPDATE environment variable
+const playersToUpdateEnv = process.env.PLAYERS_TO_UPDATE || '';
 
-// Trim the spaces around each value
-const playersToUpdateCleaned = playersToUpdate.map(value => value.trim());
+// Split the string by commas and trim the spaces
+const playersToUpdate = playersToUpdateEnv.split(',').map(value => value.trim());
 
 /**
  * Updates the players in the database
@@ -34,7 +34,12 @@ const updatePlayers = async (players) => {
 
 const handler = async function() {
     try {
-        await updatePlayers(playersToUpdateCleaned);
+        // Check if playersToUpdate is not empty
+        if (playersToUpdate.length > 0) {
+            await updatePlayers(playersToUpdate);
+        } else {
+            console.log('No players to update.');
+        }
 
         return {
             statusCode: 200,
