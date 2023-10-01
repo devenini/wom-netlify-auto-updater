@@ -34,6 +34,9 @@ To get started with this project, follow these steps:
 
 Once you've completed the setup, the Netlify scheduled function will automatically update the specified players on the OSRS Wise Old Man progress tracker at every hour.
 
+> [!WARNING]
+> Netlify functions have a timeout limit of 10 seconds. We recommend limiting the number of players to update to 6-7 players maximum to ensure the function executes within the timeout limit.
+
 ## Dependencies
 
 - `@netlify/functions`: "^2.1.0"
