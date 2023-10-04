@@ -53,4 +53,4 @@ const handler = async function() {
     }
 };
 
-exports.handler = schedule("@hourly", handler);
+exports.handler = schedule("@daily", handler);
